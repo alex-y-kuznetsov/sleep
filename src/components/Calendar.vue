@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from 'vuex';
 
 export default {
   data () {
@@ -49,21 +49,21 @@ export default {
       'daysInMonth'
     ]),
     daysToSkip () {
-      return this.getMonthStart()
+      return this.getMonthStart();
     },
     daysOnCouch () {
-      return this.dayCounter.filter(day => day.onCouch).length
+      return this.dayCounter.filter(day => day.onCouch).length;
     }
   },
   methods: {
     getMonthStart () {
-      const weekDayNumbers = [0, 1, 2, 3, 4, 5, 6]
-      const currentYear = new Date().getFullYear()
-      const currentMonth = new Date().getMonth()
-      const monthStart = new Date(currentYear, currentMonth, 1)
+      const weekDayNumbers = [0, 1, 2, 3, 4, 5, 6];
+      const currentYear = new Date().getFullYear();
+      const currentMonth = new Date().getMonth();
+      const monthStart = new Date(currentYear, currentMonth, 1);
       return weekDayNumbers[monthStart.getDay()] !== 0 // Check if Sunday
         ? weekDayNumbers[monthStart.getDay()] - 1 // If not, return as normal
-        : 6 // If Sunday, return last day of the array
+        : 6; // If Sunday, return last day of the array
     },
     createDayCounter () {
       for (let i = 0; i < this.daysInMonth; i++) {
@@ -71,12 +71,12 @@ export default {
           onCouch: false,
           id: i + 1
         }
-        this.dayCounter.push(dayObj)
+        this.dayCounter.push(dayObj);
       }
     }
   },
   created () {
-    this.createDayCounter()
+    this.createDayCounter();
   }
 }
 </script>

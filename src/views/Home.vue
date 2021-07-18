@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import Month from '@/components/Month.vue'
-import Calendar from '@/components/Calendar.vue'
+import Month from '@/components/Month.vue';
+import Calendar from '@/components/Calendar.vue';
 
 export default {
   name: 'Home',
