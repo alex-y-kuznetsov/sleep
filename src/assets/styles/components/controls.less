@@ -1,0 +1,36 @@
+.controls {
+  display: flex;
+  justify-content: space-between;
+  width: 558px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+
+  .button {
+    &:not(:last-of-type) {
+      margin-right: 10px;
+    }
+  }
+}
+
+.button {
+  border: 1px solid @main_color;
+  padding: 8px 6px;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 18px;
+  border-radius: 20px;
+  width: 120px;
+
+  &:hover {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}
