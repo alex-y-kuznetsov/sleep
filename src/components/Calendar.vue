@@ -64,10 +64,10 @@ export default {
         : 6; // If Sunday, return last day of the array
     },
     createDayCounter () {
-      for (let i = 0; i < this.daysInMonth; i++) {
+      for (let i = 1; i <= this.daysInMonth; i++) {
         const dayObj = {
           onCouch: false,
-          id: i + 1
+          id: i
         };
         this.dayCounter.push(dayObj);
       }
