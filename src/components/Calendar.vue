@@ -1,6 +1,5 @@
 <template>
   <div class="calendar">
-    <span>Calendar</span>
     <div class="calendar_proper">
       <div class="calendar_header">
         <div class="calendar_cell">mon</div>
@@ -57,12 +56,11 @@ export default {
   },
   methods: {
     getMonthStart () {
-      const weekDayNumbers = [0, 1, 2, 3, 4, 5, 6];
       const currentYear = new Date().getFullYear();
       const currentMonth = new Date().getMonth();
       const monthStart = new Date(currentYear, currentMonth, 1);
-      return weekDayNumbers[monthStart.getDay()] !== 0 // Check if Sunday
-        ? weekDayNumbers[monthStart.getDay()] - 1 // If not, return as normal
+      return monthStart.getDay() !== 0 // Check if Sunday
+        ? monthStart.getDay() - 1 // If not, return as normal
         : 6; // If Sunday, return last day of the array
     },
     createDayCounter () {
@@ -70,7 +68,7 @@ export default {
         const dayObj = {
           onCouch: false,
           id: i + 1
-        }
+        };
         this.dayCounter.push(dayObj);
       }
     }
