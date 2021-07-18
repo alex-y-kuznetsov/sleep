@@ -41,7 +41,7 @@
 
   &:checked {
     & + .calendar_fill {
-      background-color: @fill_cell;
+      background-color: @fill_color;
     }
   }
 }
@@ -52,4 +52,22 @@
   font-size: 30px;
   line-height: 56px;
   cursor: pointer;
+}
+
+.calendar_stats_item {
+  display: flex;
+  width: fit-content;
+  margin: 10px auto;
+  align-items: center;
+}
+
+.color_code {
+  width: 16px;
+  height: 16px;
+  border: 1px solid @main_color;
+  margin-right: 10px;
+}
+
+.color_fill {
+  background-color: @fill_color;
 }

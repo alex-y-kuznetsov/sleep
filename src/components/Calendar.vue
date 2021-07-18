@@ -13,13 +13,23 @@
       </div>
       <form class="calendar_inner">
         <div class="calendar_cell calendar_skip" v-for="daySkipped in daysToSkip" v-bind:key="'skip' + daySkipped"></div>
-        <label class="calendar_cell" v-for="(day, index) in daysInMonth" v-bind:key="day">
-          <input class="calendar_day" type="checkbox">
-          <div class="calendar_fill"> {{ index + 1 }}</div>
+        <label class="calendar_cell" v-for="day in dayCounter" v-bind:key="day.id">
+          <input class="calendar_day" type="checkbox" v-model="day.onCouch">
+          <div class="calendar_fill"> {{ day.id }}</div>
         </label>
       </form>
       <div class="calendar_legend">
-        <span>Days in month: <b>{{ daysInMonth }}</b></span>
+        <div>Days in month: <b>{{ daysInMonth }}</b></div>
+        <div class="calendar_stats">
+          <div class="calendar_stats_item">
+            <div class="color_code"></div>
+            <span>Days in bed: <b>{{ dayCounter.length - daysOnCouch }}</b></span>
+          </div>
+          <div class="calendar_stats_item">
+            <div class="color_code color_fill"></div>
+            <span>Days on the couch: <b>{{ daysOnCouch }}</b></span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -31,7 +41,7 @@ import { mapState } from 'vuex'
 export default {
   data () {
     return {
-
+      dayCounter: []
     }
   },
   computed: {
@@ -40,6 +50,9 @@ export default {
     ]),
     daysToSkip () {
       return this.getMonthStart()
+    },
+    daysOnCouch () {
+      return this.dayCounter.filter(day => day.onCouch).length
     }
   },
   methods: {
@@ -51,7 +64,19 @@ export default {
       return weekDayNumbers[monthStart.getDay()] !== 0 // Check if Sunday
         ? weekDayNumbers[monthStart.getDay()] - 1 // If not, return as normal
         : 6 // If Sunday, return last day of the array
+    },
+    createDayCounter () {
+      for (let i = 0; i < this.daysInMonth; i++) {
+        const dayObj = {
+          onCouch: false,
+          id: i + 1
+        }
+        this.dayCounter.push(dayObj)
+      }
     }
+  },
+  created () {
+    this.createDayCounter()
   }
 }
 </script>
