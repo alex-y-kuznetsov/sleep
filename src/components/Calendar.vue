@@ -18,8 +18,10 @@
         </label>
       </form>
       <div class="calendar_legend">
-        <div>Days in month: <b>{{ daysInMonth }}</b></div>
         <div class="calendar_stats">
+          <div class="calendar_stats_item">
+            <span>Days in month: <b>{{ daysInMonth }}</b></span>
+          </div>
           <div class="calendar_stats_item">
             <div class="color_code"></div>
             <span>Days in bed: <b>{{ dayCounter.length - daysOnCouch }}</b></span>

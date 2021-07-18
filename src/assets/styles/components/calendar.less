@@ -3,14 +3,24 @@
 }
 
 .calendar_proper {
-  width: 518px;
+  width: 558px;
+  box-sizing: border-box;
   margin: 0 auto;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  padding: 20px;
 }
 
 .calendar_header,
 .calendar_inner {
   display: flex;
   justify-content: flex-start;
+}
+
+.calendar_header {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid @main_color;
 }
 
 .calendar_inner {
@@ -52,6 +62,11 @@
   font-size: 30px;
   line-height: 56px;
   cursor: pointer;
+}
+
+.calendar_stats {
+  display: flex;
+  justify-content: space-between;
 }
 
 .calendar_stats_item {

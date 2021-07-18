@@ -1,6 +1,6 @@
 <template>
   <div class="month">
-    <span>Showing results for <b>{{ currentMonth }}</b></span>
+    <span>Sleep statistics for <b>{{ currentMonth }}</b></span>
   </div>
 </template>
 
