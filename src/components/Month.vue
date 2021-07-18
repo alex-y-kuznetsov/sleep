@@ -1,5 +1,7 @@
 <template>
-  <div>Showing results for: {{ currentMonth }}</div>
+  <div class="month">
+    <span>Showing results for <b>{{ currentMonth }}</b></span>
+  </div>
 </template>
 
 <script>
