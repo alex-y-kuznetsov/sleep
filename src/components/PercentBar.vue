@@ -1,11 +1,11 @@
 <template>
-  <div class="bar">
+  <section class="section bar">
     <div class="bar_inner">
       <div class="bar_fill" v-bind:style="{ width: barFill + '%', backgroundColor: barStatus.color }"></div>
       <div class="bar_percent">{{ Math.round(barFill) + '%' }}</div>
     </div>
     <div class="bar_title">{{ barStatus.title }}</div>
-  </div>
+  </section>
 </template>
 
 <script>

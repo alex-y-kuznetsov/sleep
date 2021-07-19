@@ -1,5 +1,5 @@
 <template>
-  <div class="calendar">
+  <section class="section calendar">
     <div class="calendar_proper">
       <div class="calendar_header">
         <div class="calendar_cell">mon</div>
@@ -33,7 +33,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

@@ -10,7 +10,8 @@ export default new Vuex.Store({
     currentMonth: currentMonth(),
     daysInMonth: daysInMonth(),
     dayCounter: [],
-    isBarShown: false
+    isBarShown: false,
+    isTimelineShown: false
   },
   mutations: {
     createDayCounter (state) {
@@ -27,8 +28,8 @@ export default new Vuex.Store({
         day.onCouch = false;
       });
     },
-    togglePercentBar (state) {
-      state.isBarShown = !state.isBarShown;
+    toggleSection (state, field) {
+      state[field] = !state[field];
     }
   },
   actions: {

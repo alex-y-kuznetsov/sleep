@@ -1,7 +1,7 @@
 <template>
-  <div class="month">
+  <section class="month">
     <span>Sleep statistics for <b>{{ currentMonth }}</b></span>
-  </div>
+  </section>
 </template>
 
 <script>

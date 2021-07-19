@@ -1,12 +1,14 @@
 <template>
-  <div class="controls">
+  <section class="section controls">
     <button class="button button_reset" v-on:click.stop="resetDaysOnCouch">Reset</button>
     <button class="button button_commit">Commit</button>
-    <button class="button button_commit" v-on:click.stop="togglePercentBar">
+    <button class="button button_commit" v-on:click.stop="toggleSection('toggleSection', 'isBarShown')">
       {{ isBarShown ? 'Hide Bar' : 'Show Bar' }}
     </button>
-    <button class="button button_commit">Show Timeline</button>
-  </div>
+    <button class="button button_commit" v-on:click.stop="toggleSection('toggleSection', 'isTimelineShown')">
+      {{ isTimelineShown ? 'Hide Timeline' : 'Show Timeline' }}
+    </button>
+  </section>
 </template>
 
 <script>
@@ -15,15 +17,16 @@ import { mapState } from 'vuex';
 export default {
   computed: {
     ...mapState([
-      'isBarShown'
+      'isBarShown',
+      'isTimelineShown'
     ])
   },
   methods: {
     resetDaysOnCouch () {
       this.$store.commit('clearDaysOnCouch');
     },
-    togglePercentBar () {
-      this.$store.commit('togglePercentBar');
+    toggleSection (section, field) {
+      this.$store.commit(section, field);
     }
   }
 }
