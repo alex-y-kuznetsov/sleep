@@ -1,3 +1,38 @@
 .timeline_days {
   width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.timeline_upper {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid @main_color;
+}
+
+.timeline_dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin: 0 4px;
+}
+
+.timeline_dot_highlited {
+  background-color: @fill_color;
+}
+
+.timeline_icon {
+  width: 20px;
+  height: 20px;
+  margin-right: auto;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.timeline_icon_bed {
+  background-image: url('/images/icons/bed.svg');
+}
+.timeline_icon_couch {
+  background-image: url('/images/icons/couch.svg');
 }
