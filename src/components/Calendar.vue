@@ -42,12 +42,12 @@ import { mapState } from 'vuex';
 export default {
   data () {
     return {
-      dayCounter: []
     }
   },
   computed: {
     ...mapState([
-      'daysInMonth'
+      'daysInMonth',
+      'dayCounter'
     ]),
     daysToSkip () {
       return this.getMonthStart();
@@ -64,19 +64,10 @@ export default {
       return monthStart.getDay() !== 0 // Check if Sunday
         ? monthStart.getDay() - 1 // If not, return as normal
         : 6; // If Sunday, return last day of the array
-    },
-    createDayCounter () {
-      for (let i = 1; i <= this.daysInMonth; i++) {
-        const dayObj = {
-          onCouch: false,
-          id: i
-        };
-        this.dayCounter.push(dayObj);
-      }
     }
   },
   created () {
-    this.createDayCounter();
+    this.$store.commit('createDayCounter');
   }
 }
 </script>
