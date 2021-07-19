@@ -3,7 +3,9 @@
     <Month />
     <Controls />
     <Calendar />
-    <PercentBar v-if="isBarShown"/>
+    <transition name="slide-fade">
+      <PercentBar v-if="isBarShown"/>
+    </transition>
   </div>
 </template>
 
