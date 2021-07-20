@@ -61,9 +61,6 @@ export default {
         ? monthStart.getDay() - 1 // If not, return as normal
         : 6; // If Sunday, return last day of the array
     }
-  },
-  created () {
-    this.$store.commit('createDayCounter');
   }
 }
 </script>

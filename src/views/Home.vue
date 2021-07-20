@@ -28,6 +28,9 @@ export default {
       'isBarShown',
       'isTimelineShown'
     ])
+  },
+  created () {
+    this.$store.commit('createDayCounter');
   }
 }
 </script>

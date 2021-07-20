@@ -15,12 +15,16 @@ export default new Vuex.Store({
   },
   mutations: {
     createDayCounter (state) {
-      for (let i = 1; i <= state.daysInMonth; i++) {
-        const dayObj = {
-          onCouch: false,
-          id: i
-        };
-        state.dayCounter.push(dayObj);
+      if (localStorage.storageDayCounter) {
+        state.dayCounter = JSON.parse(localStorage.storageDayCounter);
+      } else {
+        for (let i = 1; i <= state.daysInMonth; i++) {
+          const dayObj = {
+            onCouch: false,
+            id: i
+          };
+          state.dayCounter.push(dayObj);
+        }
       }
     },
     clearDaysOnCouch (state) {
@@ -30,6 +34,9 @@ export default new Vuex.Store({
     },
     toggleSection (state, field) {
       state[field] = !state[field];
+    },
+    submitToLocalStorage (state) {
+      localStorage.setItem('storageDayCounter', JSON.stringify(state.dayCounter));
     }
   },
   actions: {

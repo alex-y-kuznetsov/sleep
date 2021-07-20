@@ -1,7 +1,7 @@
 <template>
   <section class="section controls">
     <button class="button button_reset" v-on:click.stop="resetDaysOnCouch">Reset</button>
-    <button class="button button_commit">Commit</button>
+    <button class="button button_commit" v-on:click.stop="saveDataToStorage">Commit</button>
     <button class="button button_commit" v-on:click.stop="toggleSection('toggleSection', 'isBarShown')">
       {{ isBarShown ? 'Hide Bar' : 'Show Bar' }}
     </button>
@@ -27,6 +27,9 @@ export default {
     },
     toggleSection (section, field) {
       this.$store.commit(section, field);
+    },
+    saveDataToStorage () {
+      this.$store.commit('submitToLocalStorage');
     }
   }
 }
