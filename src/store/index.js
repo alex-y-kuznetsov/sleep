@@ -15,9 +15,13 @@ export default new Vuex.Store({
   },
   mutations: {
     createDayCounter (state) {
-      if (localStorage.storageDayCounter) {
-        state.dayCounter = JSON.parse(localStorage.storageDayCounter);
+      const now = new Date();
+      if (localStorage.storageDayCounter && now.getTime() < JSON.parse(localStorage.storageDayCounter).expiry) {
+        state.dayCounter = JSON.parse(localStorage.storageDayCounter).dayCounter;
       } else {
+        if (localStorage.storageDayCounter) {
+          localStorage.removeItem('storageDayCounter');
+        };
         for (let i = 1; i <= state.daysInMonth; i++) {
           const dayObj = {
             onCouch: false,
@@ -36,7 +40,17 @@ export default new Vuex.Store({
       state[field] = !state[field];
     },
     submitToLocalStorage (state) {
-      localStorage.setItem('storageDayCounter', JSON.stringify(state.dayCounter));
+      const currentMonth = new Date().getMonth();
+      const currentYear = new Date().getFullYear();
+      const isDecember = currentMonth === 11;
+      const expiryYear = isDecember ? currentYear + 1 : currentYear;
+      const expiryMonth = isDecember ? 0 : currentMonth + 1;
+      const expiryMonthStart = new Date(expiryYear, expiryMonth, 1)
+      const itemWithExpiry = {
+        dayCounter: state.dayCounter,
+        expiry: expiryMonthStart.getTime()
+      }
+      localStorage.setItem('storageDayCounter', JSON.stringify(itemWithExpiry));
     }
   },
   actions: {
