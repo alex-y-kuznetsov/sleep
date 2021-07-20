@@ -20,6 +20,7 @@
       <div class="calendar_legend">
         <div class="calendar_stats">
           <div class="calendar_stats_item">
+            <div class="calendar_clock"></div>
             <span>Days in month: <b>{{ daysInMonth }}</b></span>
           </div>
           <div class="calendar_stats_item">
