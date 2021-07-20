@@ -24,13 +24,38 @@
 
 @media (max-width: @mobile_width) {
   .controls {
-    flex-direction: column;
+    position: fixed;
+    background-color: @white_color;
+    left: 50%;
+    top: 10px;
+    transform: translateX(-50%);
 
     .button {
-      width: 100%;
-      
-      &:not(:last-of-type) {
-        margin-bottom: 8px;
+      font-size: 0;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 50%;
+      width: 60px;
+      filter: opacity(0.7);
+
+      &.toggled {
+        background-color: @fill_color;
+      }
+
+      &.button_reset {
+        background-image: url('/images/icons/clear.svg');
+      }
+
+      &.button_commit {
+        background-image: url('/images/icons/commit.svg');
+      }
+
+      &.button_bar {
+        background-image: url('/images/icons/bar.svg');
+      }
+
+      &.button_timeline {
+        background-image: url('/images/icons/timeline.svg');
       }
     }
   }
